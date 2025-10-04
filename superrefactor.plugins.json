@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "example-plugin",
+      "path": "./plugins/example-plugin.js",
+      "options": {}
+    }
+  ]
+}
