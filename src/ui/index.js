@@ -59,7 +59,16 @@ class PreviewPanel {
      * Generate HTML content for the webview
      * @param {vscode.Webview} webview - The webview instance
      */
-    _getHtmlForWebview(webview) {
+    _getHtmlForWebview(webview, testResults = null) {
+        let testSection = '';
+        if (testResults) {
+            testSection = `
+                <div class="test-results">
+                    <h2>Test Results</h2>
+                    <pre>${testResults}</pre>
+                </div>
+            `;
+        }
         return `<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -73,6 +82,7 @@ class PreviewPanel {
                 .diff-line { font-family: monospace; padding: 2px; }
                 .added { background-color: #e6ffed; }
                 .removed { background-color: #ffeef0; }
+                .test-results { margin: 20px; border: 1px solid #ccc; padding: 10px; background: #f9f9f9; }
             </style>
         </head>
         <body>
@@ -81,6 +91,7 @@ class PreviewPanel {
                 <div class="file-header">No changes to preview</div>
                 <p>Run a refactor operation to see a preview of changes here.</p>
             </div>
+            ${testSection}
         </body>
         </html>`;
     }

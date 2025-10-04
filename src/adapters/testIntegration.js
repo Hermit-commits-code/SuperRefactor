@@ -42,7 +42,24 @@ function runMocha(testPath) {
     }
 }
 
+/**
+ * Run PyTest tests and log results.
+ * @param {string} testPath - Path to test files or directory
+ * @returns {Object} { success: boolean, output: string }
+ */
+function runPyTest(testPath) {
+    try {
+        const output = execSync(`pytest "${testPath}"`, { encoding: "utf8" });
+        console.log(`[Test] PyTest completed for ${testPath}`);
+        return { success: true, output };
+    } catch (err) {
+        console.error(`[Test] PyTest error for ${testPath}: ${err.message}`);
+        return { success: false, output: err.message };
+    }
+}
+
 module.exports = {
     runJest,
-    runMocha
+    runMocha,
+    runPyTest
 };

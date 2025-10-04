@@ -13,19 +13,48 @@ function activate(context) {
     console.log('SuperRefactor Pro is now active!');
 
     // Register commands
-    const refactorCommand = vscode.commands.registerCommand('superrefactor.refactor', () => {
+    const { runJest, runMocha, runPyTest } = require('./adapters/testIntegration');
+
+    const refactorCommand = vscode.commands.registerCommand('superrefactor.refactor', async () => {
         vscode.window.showInformationMessage('SuperRefactor: Refactor command executed!');
-        // TODO: Implement refactor logic
+        // Example: Run Jest tests after refactor
+        const jestResult = runJest('./tests');
+        PreviewPanel.createOrShow(context.extensionUri);
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel._panel.webview.html = PreviewPanel.currentPanel._getHtmlForWebview(
+                PreviewPanel.currentPanel._panel.webview,
+                jestResult.output
+            );
+        }
+        // TODO: Implement rollback logic if !jestResult.success
     });
 
-    const migrateCommand = vscode.commands.registerCommand('superrefactor.migrate', () => {
+    const migrateCommand = vscode.commands.registerCommand('superrefactor.migrate', async () => {
         vscode.window.showInformationMessage('SuperRefactor: JS to TS migration started!');
-        // TODO: Implement migration logic
+        // Example: Run Mocha tests after migration
+        const mochaResult = runMocha('./tests');
+        PreviewPanel.createOrShow(context.extensionUri);
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel._panel.webview.html = PreviewPanel.currentPanel._getHtmlForWebview(
+                PreviewPanel.currentPanel._panel.webview,
+                mochaResult.output
+            );
+        }
+        // TODO: Implement rollback logic if !mochaResult.success
     });
 
-    const pythonRefactorCommand = vscode.commands.registerCommand('superrefactor.pythonRefactor', () => {
+    const pythonRefactorCommand = vscode.commands.registerCommand('superrefactor.pythonRefactor', async () => {
         vscode.window.showInformationMessage('SuperRefactor: Python refactor started!');
-        // TODO: Implement Python refactor logic
+        // Example: Run PyTest after Python refactor
+        const pyTestResult = runPyTest('./tests');
+        PreviewPanel.createOrShow(context.extensionUri);
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel._panel.webview.html = PreviewPanel.currentPanel._getHtmlForWebview(
+                PreviewPanel.currentPanel._panel.webview,
+                pyTestResult.output
+            );
+        }
+        // TODO: Implement rollback logic if !pyTestResult.success
     });
 
     const previewDiffCommand = vscode.commands.registerCommand('superrefactor.previewDiff', () => {
