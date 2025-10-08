@@ -1,136 +1,27 @@
 {
-  "name": "superrefactor-pro",
-  "displayName": "SuperRefactor Pro",
-  "description": "Robust, modular refactoring and migration tool for VSCode (JS/TS/Python)",
-  "version": "0.1.0",
-  "publisher": "your-publisher",
-  "license": "MIT",
+  "name": "transmute-pro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/superrefactor-pro"
+    "url": "git+https://github.com/Hermit-commits-code/TransmutePro.git"
   },
-  "keywords": [
-    "refactoring",
-    "javascript",
-    "typescript",
-    "python",
-    "migration",
-    "ast",
-    "code-transformation"
-  ],
-  "engines": {
-    "vscode": ">=1.70.0"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hermit-commits-code/TransmutePro/issues"
   },
-  "categories": [
-    "Programming Languages",
-    "Formatters",
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./src/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "superrefactor.refactor",
-        "title": "Refactor Project"
-      },
-      {
-        "command": "superrefactor.migrate",
-        "title": "Migrate JS to TS"
-      },
-      {
-        "command": "superrefactor.pythonRefactor",
-        "title": "Python Refactor"
-      },
-      {
-        "command": "superrefactor.previewDiff",
-        "title": "Preview Refactor Diff"
-      }
-    ],
-    "menus": {
-      "editor/context": [
-        {
-          "command": "superrefactor.refactor",
-          "when": "editorLangId == javascript || editorLangId == typescript || editorLangId == python"
-        },
-        {
-          "command": "superrefactor.previewDiff"
-        }
-      ]
-    },
-    "configuration": {
-      "type": "object",
-      "title": "SuperRefactor Pro Configuration",
-      "properties": {
-        "superrefactor.lintOnRefactor": {
-          "type": "boolean",
-          "default": true,
-          "description": "Run lint after refactor"
-        },
-        "superrefactor.testOnRefactor": {
-          "type": "boolean",
-          "default": true,
-          "description": "Run tests after refactor"
-        },
-        "superrefactor.previewDiff": {
-          "type": "boolean",
-          "default": true,
-          "description": "Show diff preview before applying refactor"
-        }
-      }
-    },
-    "languages": [
-      {
-        "id": "javascript",
-        "aliases": [
-          "JavaScript",
-          "js"
-        ],
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      },
-      {
-        "id": "typescript",
-        "aliases": [
-          "TypeScript",
-          "ts"
-        ],
-        "extensions": [
-          ".ts",
-          ".tsx"
-        ]
-      },
-      {
-        "id": "python",
-        "aliases": [
-          "Python",
-          "py"
-        ],
-        "extensions": [
-          ".py"
-        ]
-      }
-    ]
-  },
-  "scripts": {
-    "lint": "eslint src --ext .js",
-    "format": "prettier --write src",
-    "test": "jest --coverage"
-  },
+  "homepage": "https://github.com/Hermit-commits-code/TransmutePro#readme",
   "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/parser": "^7.28.4",
-    "@babel/traverse": "^7.28.4",
-    "@babel/types": "^7.28.4"
+    "@babel/generator": "^7.28.3",
+    "@babel/parser": "^7.28.4"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/vscode": "^1.70.0",
-    "eslint": "^8.0.0",
-    "jest": "^30.2.0",
-    "prettier": "^3.0.0",
-    "vsce": "^2.15.0"
+    "typescript": "^5.9.3"
   }
 }

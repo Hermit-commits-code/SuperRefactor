@@ -1,43 +1,47 @@
-# SuperRefactor Pro
+# Transmute Pro
 
-[![Build Status](https://img.shields.io/github/workflow/status/Hermit-commits-code/SuperRefactor/CI)](https://github.com/Hermit-commits-code/SuperRefactor/actions)
-[![Coverage Status](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/Hermit-commits-code/SuperRefactor)
-[![Version](https://img.shields.io/github/package-json/v/Hermit-commits-code/SuperRefactor)](https://github.com/Hermit-commits-code/SuperRefactor)
-[![License](https://img.shields.io/github/license/Hermit-commits-code/SuperRefactor)](LICENSE)
+A minimal, testable code migration tool. This project is rebuilt from scratch for clarity, reliability, and ease of testing.
 
-> The most robust, modular, and professionally polished refactoring and migration tool for VSCode. Supports JS→TS, advanced Python, monorepos, plugins, CI/CD, and more.
+## Getting Started> The most advanced, modular, and professionally polished JS→TS migration engine for VSCode. Built for real-world codebases, deep static analysis, edge case handling, ambiguity management, actionable reporting, and near-complete test coverage.
 
-## Features
+1. Clone this repo and run:## Features
 
-- Multi-file refactor engine with rollback
-- Automated JS→TS migration and type inference
-- Advanced Python refactoring (rename, extract, move, circular dependency)
-- Linting/formatting (ESLint, Prettier, Flake8, Black)
-- Integrated testing (Jest, Mocha, PyTest)
-- Stress/fuzz testing and concurrency controls
-- Interactive documentation and guides
-- Cross-language/monorepo support
-- Custom refactor scripts and plugins
-- Visualization and collaboration panels
-- CI/CD integration
-- Onboarding and help features
+   ````bash
 
-## Installation
+   npm install- Multi-file JS→TS migration with rollback and safety
 
-1. Clone this repo: `git clone https://github.com/Hermit-commits-code/SuperRefactor.git`
-2. Install dependencies: `npm install`
-3. Open in VSCode and run the extension in the Extension Development Host
+   ```- Deep static analysis: infers types from constructors, assignments, methods, and JSDoc
+
+   ````
+
+2. Try out the migration script on example files in `examples/`.- Edge case handling: nested objects, arrays, unions, intersections, generics, custom classes, dynamic keys, legacy patterns
+
+- Ambiguity management: context-aware TODOs for manual annotation, risk hotspot detection
+
+## Example- Actionable migration reports: inferred types, ambiguous areas, coverage, and risk summary
+
+- Near-complete automated test coverage for core, advanced, and real-world scenarios
+
+See `examples/simple.js` for a migration target.
+
+## Roadmap## Installation
+
+- Minimal migration script
+
+- CLI and/or VS Code extension1. Clone this repo: `git clone https://github.com/Hermit-commits-code/SuperRefactor.git`
+
+- Tests for every feature2. Install dependencies: `npm install`
+
+- Clear documentation for every command
 
 ## Usage
 
-- Use the Command Palette (`Ctrl+Shift+P`) to run refactor, migration, testing, and visualization commands
-- See the Welcome and Help panels for onboarding and troubleshooting
-- Configure plugins in `superrefactor.plugins.json`
+- Use the Command Palette (`Ctrl+Shift+P`) to run JS→TS migration, reporting, and testing commands
 
 ## Coverage & Testing
 
-- All core modules and adapters are covered by unit and integration tests
-- Run `npm test` to execute tests and view coverage reports
+- All migration logic, edge case handling, ambiguity management, and reporting are covered by automated unit and integration tests
+- Run `npm test` to execute all tests and view coverage reports
 
 ## Contributing
 
